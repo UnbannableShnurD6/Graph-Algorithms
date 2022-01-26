@@ -1,8 +1,9 @@
 from adjacency_matrix_module import adjacency_matrix
-
+from incidence_matrix_module import incidence_matrix
 
 avilable_algos = [
     ["Матрица смежности", adjacency_matrix],
+    ["Матрица инцидентности", incidence_matrix],
     ["Выход", lambda _: exit(0)]
 ]
 
