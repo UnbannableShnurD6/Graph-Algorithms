@@ -1,3 +1,6 @@
+from articulation_points_module import articulation_points
+from brige_search_module import brige_search
+from graph_connectivity_module import graph_connectivity
 from route_search_module import route_search
 from adjacency_matrix_module import adjacency_matrix
 from incidence_matrix_module import incidence_matrix
@@ -8,6 +11,9 @@ avilable_algos = [
     ["Матрица инцидентности", incidence_matrix],
     ["Поиск маршрута", route_search],
     ["Поиск кратчайшего пути", shortest_route_search],
+    ["Проверка на связность", graph_connectivity],
+    ["Поиск мостов", brige_search],
+    ["Поиск точек сочленения", articulation_points],
     ["Выход", lambda _: exit(0)]
 ]
 

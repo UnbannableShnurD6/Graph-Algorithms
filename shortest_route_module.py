@@ -20,8 +20,6 @@ def shortest_route_search(graph: dict):
     min_point_path = {a: [a]}
 
     while True:
-        print("DEBUG: \n\tPath:", cur_path, "\n\tCur:", cur, "\n\tDepth:", depth, "\n\tmin_point_len:", min_point_len, "\n\tmin_point_path:", min_point_path)
-
         # Тут идём назад, если на текущей точке уже всё посмотрели
         if len(graph[cur]) == depth[cur]:
             cur_path.remove(cur_path[len(cur_path) - 1])

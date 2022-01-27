@@ -1,16 +1,20 @@
-# Тут ищется маршрут (не обязательно самый короткий!) поииском в глубину
-def route_search(graph: dict):
+# Тут ищется маршрут (не обязательно самый короткий!) поиском в глубину
+def route_search(graph: dict, a=None, b=None):
     viewed = []
     path = []
 
-    a = input("Введите точку А:")
-    if a not in graph:
-        print("Точка A не найдена в графе( Попробуйте ещё раз!")
-        return
-    b = input("Введите точку B:")
-    if b not in graph:
-        print("Точка B не найдена в графе( Попробуйте ещё раз!")
-        return
+    isSilence = a and b
+
+    if a is None:
+        a = input("Введите точку А:")
+        if a not in graph:
+            print("Точка A не найдена в графе( Попробуйте ещё раз!")
+            return
+    if b is None:
+        b = input("Введите точку B:")
+        if b not in graph:
+            print("Точка B не найдена в графе( Попробуйте ещё раз!")
+            return
 
     path.append(a)
     viewed.append(a)
@@ -18,13 +22,12 @@ def route_search(graph: dict):
     depth = {a: 0}
 
     while cur != b:
-        print("DEBUG: \n\tPath:", path, "\n\tCur:", cur, "\n\tDepth:", depth, "\n\tViewed:", viewed)
-
         # Тут идём назад, если на текущей точке уже всё посмотрели
         if len(graph[cur]) == depth[cur]:
             path.remove(path[len(path) - 1])
             if len(path) == 0:
-                print("Пути нет! Попробуйте ещё раз!")
+                if not isSilence:
+                    print("Пути нет! Попробуйте ещё раз!")
                 return
             cur = path[len(path) - 1]
         # Тут идём впедёд к тем точкам, где мы ещё не были
@@ -43,5 +46,7 @@ def route_search(graph: dict):
             if cur not in viewed:
                 viewed.append(cur)
 
-    print("Путь найден:", path)
+    if not isSilence:
+        print("Путь найден:", path)
+    return path
 
