@@ -1,9 +1,11 @@
+from route_search_module import route_search
 from adjacency_matrix_module import adjacency_matrix
 from incidence_matrix_module import incidence_matrix
 
 avilable_algos = [
     ["Матрица смежности", adjacency_matrix],
     ["Матрица инцидентности", incidence_matrix],
+    ["Поиск маршрута", route_search],
     ["Выход", lambda _: exit(0)]
 ]
 
