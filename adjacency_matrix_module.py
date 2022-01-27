@@ -6,7 +6,7 @@ def adjacency_matrix(graph: dict):
         print(point_name + "\t", end="")
     print()
 
-    # Теперь печатаем сначала столбец, а затем значение (0 / 1)
+    # Теперь печатаем сначала заголовок строки, а затем значение (0 / 1)
     for raw_point_name in graph.keys():
         print(raw_point_name + "\t", end="")
         for column_point_name in graph.keys():
@@ -15,3 +15,4 @@ def adjacency_matrix(graph: dict):
             else:
                 print("0\t", end="")
         print()
+
